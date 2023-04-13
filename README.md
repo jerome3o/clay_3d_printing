@@ -1,93 +1,136 @@
-# clay_3d_printing
+# Cerambot Instructions
 
-Repository for clay 3d printing information
+- [Cerambot Instructions](#cerambot-instructions)
+  - [Assembly](#assembly)
+  - [Setup](#setup)
+    - [Assembling Extrusion Nozzle](#assembling-extrusion-nozzle)
+    - [Packing Clay](#packing-clay)
+  - [Operations](#operations)
+    - [Extrusion Pusher Controller](#extrusion-pusher-controller)
+    - [Printing](#printing)
+  - [Making Model for Printing](#making-model-for-printing)
+    - [Designing Model](#designing-model)
+    - [Slicing](#slicing)
+      - [Blue Nozzle](#blue-nozzle)
+      - [Machine Settings](#machine-settings)
+      - [Profile Settings](#profile-settings)
+      - [Green Nozzle](#green-nozzle)
+      - [Machine Settings](#machine-settings-1)
+      - [Profile Settings](#profile-settings-1)
+  - [Common Problems](#common-problems)
+    - [Printer moving slowly](#printer-moving-slowly)
+    - [No Clay being extruded](#no-clay-being-extruded)
 
-## Getting started
+## Assembly 
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+Cerambot Assembly Instructions:
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+- https://www.cerambot.com/wp-content/uploads/2020/08/v1.4En20200803Cerambot-3.2.0User-Manual.pdf
+- https://cerambot.com/wp-content/uploads/2020/02/CERAMBOT-Pro-Instruction-Manual.pdf
 
-## Add your files
+## Setup
 
-- [ ] [Create](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+### Assembling Extrusion Nozzle
 
-```
-cd existing_repo
-git remote add origin https://gitlab.com/flat-team/clay_3d_printing.git
-git branch -M main
-git push -uf origin main
-```
+After each print it is recommended to disassemble the extrusion nozzle to clean it. Image below indicates how the nozzle can be re-assembled. Futher documentation in links above
+![Extrusion Nozzle Assmebly](images\extrusion_nozzle_assembly.jpg "Extrusion Nozzle Assmebly")
 
-## Integrate with your tools
+### Packing Clay
 
-- [ ] [Set up project integrations](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://gitlab.com/flat-team/clay_3d_printing/-/settings/integrations)
+A good method is required to ensure air bubbles are not present in the clay. It was found packing a larger container full of clay, then inserting the PVC pipe into the clay worked well. 
 
-## Collaborate with your team
+## Operations
 
-- [ ] [Invite team members and collaborators](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Automatically merge when pipeline succeeds](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
+### Extrusion Pusher Controller
 
-## Test and Deploy
+This board controls the main extrusion pusher motor. The two switches (R and C) control different aspects.
 
-Use the built-in continuous integration in GitLab.
+The **R** switch controls the direction of rotation:
+- **CW** (clockwise) means the Extruder moves up
+- **CCW** (counter-clockwise) means the Extruder moves down
 
-- [ ] [Get started with GitLab CI/CD](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+The **C** switch controls what system moves the motor:
+- **Hard** (hardware) refers to manual mode, the motor will move continuosly and the speed can be adjusted by the black dial
+- **Soft** (software) refers to automatic mode, the motor will be controlled by the printer itself. **Note** it must be in soft mode for printing 
 
-***
+![Motor Controller](images\motor_controller.jpg "Motor Controller")
 
-# Editing this README
+### Printing
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!).  Thank you to [makeareadme.com](https://gitlab.com/-/experiment/new_project_readme_content:89638aaa77232c5322fa4d3fd6430580?https://www.makeareadme.com/) for this template.
 
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+## Making Model for Printing 
 
-## Name
-Choose a self-explaining name for your project.
+To prepare a model for printing, first a 3D model/mesh needs to be designed, then "sliced" (converted into g-code for the printer to follow)
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Designing Model
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+There are a number of methods for designing the 3D model/mesh.
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+Based off this tutorial playlist by Jonathon Keep, blender has been predominately used to design the 3D models - [1. Blender 2.91 - Introduction](https://www.youtube.com/watch?v=mJLemUhaOhs&list=PLD_uR9vw07u_UHrYtAP1YTZXoTKHUP5T9)
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+Other alternatives include:
+- Solidworks
+- Fusion360
+- MeshMixer
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Slicing
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+To convert the model into g-code for the printer, again there are a few slicing programs.
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+Again, based off another tutorial by Jonathon Keep, and the Cerambot instructions, Cura is recommended - [Ultimaker Cura - Slicing for Clay or Ceramic 3D Printing](https://www.youtube.com/watch?v=sS6RdKzGirQ)
 
-## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
+The Cura slicing settings (and machine settings) can change quite regularly depending on the nozzle, print size, desired wall thickness etc.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+For each new profile, you may need to adjust the machine settings:
+![Machine Settings](images\machine_settings.jpg "Machine Settings")
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
+Or the Profile Settings:
+![Profile Settings](images\profile_settings.jpg "Profile Settings")
 
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+Some good default settings are:
 
-## License
-For open source projects, say how it is licensed.
+#### Blue Nozzle
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+The blue nozzle is around 2.2mm thick
+#### Machine Settings
 
+**Note** - Red underline changes depending on height of base being printed to
+![Blue Nozzle Machine Settings](images\blue_nozzle_machine_settings.jpg "Blue Nozzle Machine Settings")
+
+**Note** - Nozzle size and copatiable material diameter larger than real nozzle size (real sizes found on Cerambot site)
+![Blue Nozzle Extruder Settings](images\blue_nozzle_extruder_settings.jpg "Blue Nozzle Extruder Settings")
+
+#### Profile Settings
+
+Recommended to use ``cura/blue_nozzle.curaprofile`` settings
+
+#### Green Nozzle
+
+The blue nozzle is around 1.6mm thick
+#### Machine Settings
+
+**Note** - Red underline changes depending on height of base being printed to
+![Green Nozzle Machine Settings](images\green_nozzle_machine_settings.jpg "Green Nozzle Machine Settings")
+
+**Note** - Nozzle size and copatiable material diameter larger than real nozzle size (real sizes found on Cerambot site)
+![Green Nozzle Extruder Settings](images\green_nozzle_extruder_settings.jpg "Green Nozzle Extruder Settings")
+
+#### Profile Settings
+
+Two profiles were generated for the green nozzle:
+- ``cura/green_nozzle_1_wall.curaprofile`` - prints only a single wall
+- ``cura/green_nozzle_2_wall.curaprofile`` - prints two walls 
+
+## Common Problems
+
+Some of the most common problems when printing
+
+### Printer moving slowly 
+
+This was noticed to happen after a print was cancelled. Removing power to the printer, then repowering was found to fix this problem.
+
+### No Clay being extruded
+
+This happens either because:
+-  The Extruder Pusher (motor pushing clay) hasn't had enough time to push clay through the system - this just requires more time, keep printing untill clay flowing normally, then restart print
+- The Extruder Pusher is not on (happens more often than you'd think)
