@@ -33,7 +33,7 @@ Cerambot Assembly Instructions:
 ### Assembling Extrusion Nozzle
 
 After each print it is recommended to disassemble the extrusion nozzle to clean it. Image below indicates how the nozzle can be re-assembled. Futher documentation in links above
-![Extrusion Nozzle Assmebly](images\extrusion_nozzle_assembly.jpg "Extrusion Nozzle Assmebly")
+![Extrusion Nozzle Assmebly](images/extrusion_nozzle_assembly.jpg "Extrusion Nozzle Assmebly")
 
 ### Packing Clay
 
@@ -53,7 +53,7 @@ The **C** switch controls what system moves the motor:
 - **Hard** (hardware) refers to manual mode, the motor will move continuosly and the speed can be adjusted by the black dial
 - **Soft** (software) refers to automatic mode, the motor will be controlled by the printer itself. **Note** it must be in soft mode for printing 
 
-![Motor Controller](images\motor_controller.jpg "Motor Controller")
+![Motor Controller](images/motor_controller.jpg "Motor Controller")
 
 ### Printing
 
@@ -82,10 +82,10 @@ Again, based off another tutorial by Jonathon Keep, and the Cerambot instruction
 The Cura slicing settings (and machine settings) can change quite regularly depending on the nozzle, print size, desired wall thickness etc.
 
 For each new profile, you may need to adjust the machine settings:
-![Machine Settings](images\machine_settings.jpg "Machine Settings")
+![Machine Settings](images/machine_settings.jpg "Machine Settings")
 
 Or the Profile Settings:
-![Profile Settings](images\profile_settings.jpg "Profile Settings")
+![Profile Settings](images/profile_settings.jpg "Profile Settings")
 
 Some good default settings are:
 
@@ -95,10 +95,10 @@ The blue nozzle is around 2.2mm thick
 #### Machine Settings
 
 **Note** - Red underline changes depending on height of base being printed to
-![Blue Nozzle Machine Settings](images\blue_nozzle_machine_settings.jpg "Blue Nozzle Machine Settings")
+![Blue Nozzle Machine Settings](images/blue_nozzle_machine_settings.jpg "Blue Nozzle Machine Settings")
 
 **Note** - Nozzle size and copatiable material diameter larger than real nozzle size (real sizes found on Cerambot site)
-![Blue Nozzle Extruder Settings](images\blue_nozzle_extruder_settings.jpg "Blue Nozzle Extruder Settings")
+![Blue Nozzle Extruder Settings](images/blue_nozzle_extruder_settings.jpg "Blue Nozzle Extruder Settings")
 
 #### Profile Settings
 
@@ -110,10 +110,10 @@ The blue nozzle is around 1.6mm thick
 #### Machine Settings
 
 **Note** - Red underline changes depending on height of base being printed to
-![Green Nozzle Machine Settings](images\green_nozzle_machine_settings.jpg "Green Nozzle Machine Settings")
+![Green Nozzle Machine Settings](images/green_nozzle_machine_settings.jpg "Green Nozzle Machine Settings")
 
 **Note** - Nozzle size and copatiable material diameter larger than real nozzle size (real sizes found on Cerambot site)
-![Green Nozzle Extruder Settings](images\green_nozzle_extruder_settings.jpg "Green Nozzle Extruder Settings")
+![Green Nozzle Extruder Settings](images/green_nozzle_extruder_settings.jpg "Green Nozzle Extruder Settings")
 
 #### Profile Settings
 
